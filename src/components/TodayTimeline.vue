@@ -1,25 +1,42 @@
 <template>
   <div class="main-container">
     <div class="row align-items-center ">
-      <div class="col-md-4 blue bold">{{title}}</div>
+      <div class="col-md-4 yellow bold">{{ title }}</div>
       <div class="col-md-4 red text-center">{{ time }}</div>
-      <div class="col-md-4 text-right">
-        <div class="btn-group btn-group-sm yellow" role="group" aria-label="Basic mixed styles example">
-          <button type="button" class="btn btn-outline-warning" @click="start" v-if="!running">Start</button>
-          <button type="button" class="btn btn-outline-warning" @click="stop" v-else>Stop</button>
-          <button type="button" class="btn btn-outline-warning" @click="reset">Reset</button>
+      <div class="col-md-4 text-right pr-2">
+        <div
+          class="btn-group btn-group-sm yellow"
+          role="group"
+          aria-label="Basic mixed styles example"
+        >
+          <button
+            type="button"
+            class="btn btn-outline-warning"
+            @click="start"
+            v-if="!running"
+          >
+            Start
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            @click="stop"
+            v-else
+          >
+            Stop
+          </button>
+          <button type="button" class="btn btn-outline-warning" @click="reset">
+            Reset
+          </button>
         </div>
       </div>
     </div>
-
   </div>
 </template>
 <script>
 export default {
   name: "Timer",
-  props: [
-    'title'
-  ],
+  props: ["title", "index"],
   data: () => ({
     time: "00:00:00.000",
     timeBegan: null,
@@ -29,8 +46,9 @@ export default {
     running: false,
   }),
   methods: {
-    // start timer 
+    // start timer
     start() {
+      this.$emit("currentlyStart", this.index);
       if (this.running) return;
       if (this.timeBegan === null) {
         this.reset();
@@ -43,28 +61,30 @@ export default {
       this.started = setInterval(this.clockRunning, 10);
       this.running = true;
     },
-    // reset timer function 
+    // reset timer function
     reset() {
-        this.running = false;
-        clearInterval(this.started);
-        this.stoppedDuration = 0;
-        this.timeBegan = null;
-        this.timeStopped = null;
-        this.time = "00:00:00.000";
+      this.running = false;
+      clearInterval(this.started);
+      this.stoppedDuration = 0;
+      this.timeBegan = null;
+      this.timeStopped = null;
+      this.time = "00:00:00.000";
     },
     // stop timer function
     stop() {
-        this.running = false;
-        this.timeStopped = new Date();
-        clearInterval(this.started);
-        this.$emit("stopTime",this.title, this.time, this.running)
+      this.running = false;
+      this.timeStopped = new Date();
+      clearInterval(this.started);
+      this.$emit("stopTime", this.title, this.time, this.running);
     },
-    save(){
-      console.log('time saved',this.time)
+    save() {
+      console.log("time saved", this.time);
     },
     clockRunning() {
       var currentTime = new Date(),
-        timeElapsed = new Date( currentTime - this.timeBegan - this.stoppedDuration ),
+        timeElapsed = new Date(
+          currentTime - this.timeBegan - this.stoppedDuration
+        ),
         hour = timeElapsed.getUTCHours(),
         min = timeElapsed.getUTCMinutes(),
         sec = timeElapsed.getUTCSeconds(),
@@ -86,10 +106,6 @@ export default {
       }
       return (zero + num).slice(-digit);
     },
-
-
-
-
   },
 };
 </script>

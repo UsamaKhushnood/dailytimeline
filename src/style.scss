@@ -1,112 +1,136 @@
-@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-// SCSS variables 
-$dark-grey: #1E2023;
-$royal-blue: #315EFF;
-$light-grey: #3F4347;
-$dark: #18191C;
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+// SCSS variables
+$dark-grey: #1e2023;
+$royal-blue: #315eff;
+$light-grey: #3f4347;
+$dark: #18191c;
 $yellow: #f1c40f;
 $purple: #7d33fb;
 $red: #ff4757;
 /////////////////////////////////
 /////////////////////////////////
 ::selection {
-    color: $dark-grey;
-    background: $yellow;
+  color: $dark-grey;
+  background: $yellow;
 }
 
 body {
-    background-color: $dark-grey;
-    color: #fff;
+  background-color: $dark-grey;
+  color: #fff;
 }
 
 h1 {
-    font-family: 'Acme', sans-serif;
+  font-family: "Acme", sans-serif;
 }
 
 h2 {
-    font-family: 'Acme', sans-serif;
-    color: #fff;
+  font-family: "Acme", sans-serif;
+  color: #fff;
 }
 
 h3 {
-    font-family: 'Acme', sans-serif;
-    color: #fff;
+  font-family: "Acme", sans-serif;
+  color: #fff;
 }
 
 h4 {
-    font-family: 'Acme', sans-serif;
-    color: #fff;
+  font-family: "Acme", sans-serif;
+  color: #fff;
 }
 
 .yellow {
-    color: $yellow !important;
+  color: $yellow !important;
 }
 
 .blue {
-    color: $royal-blue !important;
+  color: $royal-blue !important;
 }
 
 .dark {
-    color: $dark !important;
+  color: $dark !important;
 }
 
 .purple {
-    color: $purple !important;
+  color: $purple !important;
 }
 
 .red {
-    color: $red !important;
+  color: $red !important;
 }
 
 .right-border:after {
-    content: "";
-    position: absolute;
-    width: 1px;
-    height: 80%;
-    background: $light-grey;
-    top: 10%;
-    right: 0;
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 90%;
+  background: $light-grey;
+  top: 5%;
+  right: 0;
 }
 
 .left-border:after {
-    content: "";
-    position: absolute;
-    width: 1px;
-    height: 80%;
-    background: $light-grey;
-    top: 10%;
-    left: 0;
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 90%;
+  background: $light-grey;
+  top: 10%;
+  left: 0;
 }
 
 .bottom-border:after {
-    content: "";
-    position: absolute;
-    height: 1px;
-    width: 80%;
-    background: $light-grey;
-    bottom: 0;
-    left: 10%;
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 80%;
+  background: $light-grey;
+  bottom: 0;
+  left: 10%;
 }
 
 .top-border:after {
-    content: "";
-    position: absolute;
-    height: 1px;
-    width: 80%;
-    background: $light-grey;
-    top: 0;
-    left: 10%;
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 80%;
+  background: $light-grey;
+  top: 0;
+  left: 10%;
 }
 
 #progress-bar {
-    width: 100%;
-    height: 3px;
-    background: $yellow;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+  width: 100%;
+  height: 3px;
+  background: $yellow;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .loading-btn {
-    position: relative;
+  position: relative;
+}
+
+.f-12 {
+  font-size: 12px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f1c42b;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f3be0e;
 }
